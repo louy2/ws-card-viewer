@@ -41,7 +41,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "upgrade-interactive": "npm-check --update",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -o public/dev-test-storybook"
   },
   "repository": {
     "type": "git",
