@@ -1,0 +1,46 @@
+{
+  "name": "ws-card-viewer",
+  "private": true,
+  "description": "Primitive page to view card detail of a Weiss Schwarz card",
+  "version": "0.1.0",
+  "author": "Yufan Lou <loganlyf@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.1.19",
+    "gatsby-image": "^2.0.30",
+    "gatsby-plugin-manifest": "^2.0.20",
+    "gatsby-plugin-offline": "^2.0.24",
+    "gatsby-plugin-react-helmet": "^3.0.7",
+    "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-sharp": "^2.1.15",
+    "graphql": "^14.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "react-helmet": "^5.2.0"
+  },
+  "devDependencies": {
+    "npm-check": "^5.9.0",
+    "prettier": "^1.16.4"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "upgrade-interactive": "npm-check --update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louy2/ws-card-viewer/"
+  },
+  "bugs": {
+    "url": "https://github.com/louy2/ws-card-viewer/issues"
+  }
+}
