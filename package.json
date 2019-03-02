@@ -1,13 +1,40 @@
 {
-  "name": "ws-card-viewer",
   "private": true,
+  "name": "ws-card-viewer",
   "description": "Primitive page to view card detail of a Weiss Schwarz card",
-  "version": "0.1.0",
+  "license": "MIT",
   "author": "Yufan Lou <loganlyf@gmail.com>",
-  "engines": {
-    "node": ">=10.15.2"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/louy2/ws-card-viewer/"
+  },
+  "bugs": {
+    "url": "https://github.com/louy2/ws-card-viewer/issues"
+  },
+  "version": "0.1.0",
+  "scripts": {
+    "build": "run-p --print-label build:gatsby build:storybook",
+    "build:gatsby": "gatsby build",
+    "build:storybook": "build-storybook -o public/dev-test-storybook",
+    "develop": "gatsby develop",
+    "format": "run-s format:package format:prettier format:eslint",
+    "format:eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix ./ >/dev/null 2>&1 || true",
+    "format:package": "prettier-package-json --write",
+    "format:prettier": "prettier --write '**/*.{css,gql,graphql,html,js,jsx,json,md,mdx,ts,tsx,yaml,yml}' '.editorconfig' 'LICENSE'",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./",
+    "serve": "gatsby serve",
+    "start": "npm run develop",
+    "storybook": "start-storybook -p 6006",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "typecheck": "tsc --noEmit",
+    "upgrade-interactive": "npm-check --update",
+    "validate": "run-p --print-label lint typecheck test build"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^4.1.13",
+    "@storybook/addon-links": "^4.1.13",
+    "@storybook/addons": "^4.1.13",
+    "@storybook/react": "^4.1.13",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
     "gatsby-plugin-manifest": "^2.0.20",
@@ -23,35 +50,34 @@
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
-    "@storybook/addon-actions": "^4.1.13",
-    "@storybook/addon-links": "^4.1.13",
-    "@storybook/addons": "^4.1.13",
-    "@storybook/react": "^4.1.13",
+    "@types/jest": "^24.0.9",
+    "@types/storybook__addon-actions": "^3.4.2",
+    "@types/storybook__addon-links": "^3.3.4",
+    "@types/storybook__react": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^1.4.2",
     "babel-loader": "^8.0.5",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-typescript": "^1.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-formatter-pretty": "^2.1.1",
+    "eslint-plugin-eslint-comments": "^3.0.1",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.2.1",
+    "eslint-plugin-jsx-a11y": "^6.2.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-unicorn": "^7.1.0",
+    "jest": "^24.1.0",
     "npm-check": "^5.9.0",
-    "prettier": "^1.16.4"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "prettier-package-json": "^2.1.0",
+    "typescript": "^3.3.3333"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
-  "scripts": {
-    "build": "npm run build-gatsby && npm run build-storybook",
-    "build-gatsby": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "upgrade-interactive": "npm-check --update",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o public/dev-test-storybook"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/louy2/ws-card-viewer/"
-  },
-  "bugs": {
-    "url": "https://github.com/louy2/ws-card-viewer/issues"
+  "engines": {
+    "node": ">=10.15.2"
   }
 }
