@@ -16,6 +16,7 @@
     "build": "run-p --print-label build:gatsby build:storybook",
     "build:gatsby": "gatsby build",
     "build:storybook": "build-storybook -o public/dev-test-storybook",
+    "precommit": "lint-staged && npm run build",
     "develop": "gatsby develop",
     "format": "run-s format:package format:imports format:prettier format:eslint",
     "format:eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --fix ./ >/dev/null 2>&1 || true",
@@ -42,6 +43,7 @@
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.7",
     "gatsby-plugin-sharp": "^2.0.23",
+    "gatsby-plugin-typescript": "^2.0.9",
     "gatsby-source-filesystem": "^2.0.23",
     "gatsby-transformer-sharp": "^2.1.15",
     "prop-types": "^15.7.2",
@@ -90,24 +92,7 @@
   },
   "husky": {
     "hooks": {
-      "precommit": "lint-staged && npm run build"
+      "precommit": "npm run precommit"
     }
-  },
-  "lint-staged": {
-    "package.json": ["npm run format:package", "git add"],
-    ".editorconfig": ["prettier --write", "git add"],
-    "LICENSE": ["prettier --write", "git add"],
-    "**/*.{css,gql,graphql,html,json,md,mdx,yaml,yml}": [
-      "prettier --write",
-      "git add"
-    ],
-    "**/*.{js,jsx,ts,tsx}": [
-      "import-sort --write",
-      "prettier --write",
-      "eslint --cache --ext .js,.jsx,.ts,.tsx --fix",
-      "git add",
-      "jest --bail --findRelatedTests"
-    ],
-    "concurrent": false
   }
 }
