@@ -26,7 +26,7 @@
     "serve": "gatsby serve",
     "start": "npm run develop",
     "storybook": "start-storybook -p 6006",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "test": "jest --passWithNoTests --coverage",
     "typecheck": "tsc --noEmit",
     "upgrade-interactive": "npm-check --update",
     "validate": "run-p --print-label lint typecheck test build"
@@ -69,11 +69,13 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-unicorn": "^7.1.0",
+    "husky": "^1.3.1",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-babylon": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-module": "^6.0.0",
     "jest": "^24.1.0",
+    "lint-staged": "^8.1.5",
     "npm-check": "^5.9.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.16.4",
@@ -85,5 +87,27 @@
   ],
   "engines": {
     "node": ">=10.15.2"
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged && npm run build"
+    }
+  },
+  "lint-staged": {
+    "package.json": ["npm run format:package", "git add"],
+    ".editorconfig": ["prettier --write", "git add"],
+    "LICENSE": ["prettier --write", "git add"],
+    "**/*.{css,gql,graphql,html,json,md,mdx,yaml,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{js,jsx,ts,tsx}": [
+      "import-sort --write",
+      "prettier --write",
+      "eslint --cache --ext .js,.jsx,.ts,.tsx --fix",
+      "git add",
+      "jest --bail --findRelatedTests"
+    ],
+    "concurrent": false
   }
 }
