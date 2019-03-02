@@ -4,6 +4,9 @@
   "description": "Primitive page to view card detail of a Weiss Schwarz card",
   "version": "0.1.0",
   "author": "Yufan Lou <loganlyf@gmail.com>",
+  "engines": {
+    "node": ">=10.15.2"
+  },
   "dependencies": {
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.30",
